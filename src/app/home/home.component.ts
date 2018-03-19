@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { MatTable, MatCell, MatTableDataSource, MatCellDef } from '@angular/material';
+import {Component, OnInit} from '@angular/core';
+import {MatTable, MatCell, MatTableDataSource, MatCellDef} from '@angular/material';
+import {DecimalPipe} from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,8 @@ export class HomeComponent implements OnInit {
   displayedColumns = ['period', 'payment', 'principal', 'interest', 'balance'];
   dataSource = new MatTableDataSource(this.payments);
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
     // this.isLoading = true;
@@ -57,7 +59,8 @@ export class HomeComponent implements OnInit {
   }
 
   getPayments() {
-    console.log('hi');
+    this.payments = [];
+    this.periodInterest = this.annualInterest / 100 / 12;
     this.payment = this.getPayment();
     for (let i = 1; i <= this.loanPeriods; i++) {
       this.payments.push({

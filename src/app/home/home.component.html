@@ -14,18 +14,18 @@
   <mat-card>
     <mat-card-content>
       <mat-card-title>Welcome to the loan calculator.</mat-card-title>
-      <mat-card-subtitle>Please fill the inputs below to get started.</mat-card-subtitle>
+      <mat-card-subtitle>Please fill the information below to get started.</mat-card-subtitle>
     <form class="example-form">
       <mat-form-field class="example-full-width">
         <input [(ngModel)]="totalAmount" (ngModelChange)="getPayments()" name="totalAmount" matInput placeholder="Loan amount">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input [(ngModel)]="annualInterest" name="annualInterest" matInput placeholder="Annual interest rate">
+        <input [(ngModel)]="annualInterest" (ngModelChange)="getPayments()" name="annualInterest" matInput placeholder="Annual interest rate">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input [(ngModel)]="loanPeriods" name="loanPeriods" matInput placeholder="Loan period in months">
+        <input [(ngModel)]="loanPeriods" (ngModelChange)="getPayments()" name="loanPeriods" matInput placeholder="Loan period in months">
       </mat-form-field>
     </form>
     </mat-card-content>
@@ -43,24 +43,24 @@
         <!-- Name Column -->
         <ng-container matColumnDef="payment">
           <mat-header-cell *matHeaderCellDef> Payment Amount (£) </mat-header-cell>
-          <mat-cell *matCellDef="let payment"> {{payment.payment}} </mat-cell>
+          <mat-cell *matCellDef="let payment"> {{payment.payment | number:'1.2-2'}} </mat-cell>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="principal">
           <mat-header-cell *matHeaderCellDef> Principal Amount (£) </mat-header-cell>
-          <mat-cell *matCellDef="let payment"> {{payment.principal}} </mat-cell>
+          <mat-cell *matCellDef="let payment"> {{payment.principal | number:'1.2-2'}} </mat-cell>
         </ng-container>
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="interest">
           <mat-header-cell *matHeaderCellDef> Interest Amount (£) </mat-header-cell>
-          <mat-cell *matCellDef="let payment"> {{payment.interest}} </mat-cell>
+          <mat-cell *matCellDef="let payment"> {{payment.interest | number:'1.2-2'}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="balance">
-          <mat-header-cell *matHeaderCellDef> Interest Amount (£) </mat-header-cell>
-          <mat-cell *matCellDef="let payment"> {{payment.balance}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> Balance (£) </mat-header-cell>
+          <mat-cell *matCellDef="let payment"> {{payment.balance | number:'1.2-2'}} </mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
