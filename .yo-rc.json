@@ -1,0 +1,19 @@
+{
+  "generator-ngx-rocket": {
+    "version": "4.0.0",
+    "props": {
+      "appName": "CO7518",
+      "target": [
+        "web"
+      ],
+      "pwa": false,
+      "ui": "material",
+      "layout": "simple",
+      "auth": false,
+      "lazy": false,
+      "projectName": "co-7518",
+      "packageManager": "npm",
+      "mobile": []
+    }
+  }
+}
