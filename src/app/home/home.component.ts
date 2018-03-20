@@ -66,22 +66,4 @@ export class HomeComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.payments);
   }
 
-
-//   const periodInterest = 0.004; annualInterest / 100 / 12;
-// //let currPeriod = 2;
-//
-//   const payment =
-//     periodInterest *
-//     totalAmount *
-//     Math.pow(1 + periodInterest, loanPeriods) /
-//     (Math.pow(1 + periodInterest, loanPeriods) - 1);
-//
-//   const principal = currPeriod =>
-//     payment / Math.pow(1 + periodInterest, 1 + loanPeriods - currPeriod);
-//
-//   const interest = currPeriod => payment - principal(currPeriod);
-//
-//   const balance = currPeriod =>
-//     interest(currPeriod) / periodInterest - principal(currPeriod);
-
 }
