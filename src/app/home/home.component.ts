@@ -9,9 +9,10 @@ import {DecimalPipe} from '@angular/common';
 })
 export class HomeComponent implements OnInit {
 
-  totalAmount = 1000;
-  annualInterest = 5;
-  loanPeriods = 3;
+  totalAmount: number;
+  annualInterest: number;
+  years: number;
+  loanPeriods: number;
   periodInterest: number;
   payment: number;
   principal: number;
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    this.loanPeriods = this.years * 12;
     this.periodInterest = this.annualInterest / 100 / 12;
     this.getPayments();
   }
@@ -50,6 +52,7 @@ export class HomeComponent implements OnInit {
   getPayments() {
     console.log(this.loanPeriods);
     this.payments = [];
+    this.loanPeriods = this.years * 12;
     this.periodInterest = this.annualInterest / 100 / 12;
     this.payment = this.getPayment();
     for (let i = 1; i <= this.loanPeriods; i++) {

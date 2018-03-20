@@ -1,33 +1,39 @@
 <div class="container">
   <!--<mat-card>-->
-    <!--<p>-->
-      <!--<img class="logo" src="assets/ngx-rocket-logo.png" alt="angular logo"/>-->
-    <!--</p>-->
-    <!--<mat-card-content>-->
-      <!--<mat-card-title translate>Hello world !</mat-card-title>-->
-      <!--<mat-card-subtitle>-->
-        <!--<app-loader [isLoading]="isLoading" size="1.5"></app-loader>-->
-        <!--<q [hidden]="isLoading">{{quote}}</q>-->
-      <!--</mat-card-subtitle>-->
-    <!--</mat-card-content>-->
+  <!--<p>-->
+  <!--<img class="logo" src="assets/ngx-rocket-logo.png" alt="angular logo"/>-->
+  <!--</p>-->
+  <!--<mat-card-content>-->
+  <!--<mat-card-title translate>Hello world !</mat-card-title>-->
+  <!--<mat-card-subtitle>-->
+  <!--<app-loader [isLoading]="isLoading" size="1.5"></app-loader>-->
+  <!--<q [hidden]="isLoading">{{quote}}</q>-->
+  <!--</mat-card-subtitle>-->
+  <!--</mat-card-content>-->
   <!--</mat-card>-->
   <mat-card>
     <mat-card-content>
-      <mat-card-title>Welcome to the loan calculator.</mat-card-title>
-      <mat-card-subtitle>Please fill the information below to get started.</mat-card-subtitle>
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <input [(ngModel)]="totalAmount" (ngModelChange)="getPayments()" name="totalAmount" matInput placeholder="Loan amount">
-      </mat-form-field>
+      <mat-card-title>Loan calculator</mat-card-title>
+      <mat-card-subtitle>This loan calculator will help you determine the monthly payments on a loan. Simply
+        enter the loan amount, term and interest rate in the fields below and click calculate.
+        This calculator can be used for mortgage, auto, or any other fixed loan types.</mat-card-subtitle>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input
+            [(ngModel)]="totalAmount" (ngModelChange)="getPayments()" matInput
+            name="totalAmount" placeholder="Loan amount" type="number" minlength="1">
+        </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <input [(ngModel)]="annualInterest" (ngModelChange)="getPayments()" name="annualInterest" matInput placeholder="Annual interest rate">
-      </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input [(ngModel)]="annualInterest" (ngModelChange)="getPayments()" matInput
+                 name="annualInterest" placeholder="Annual interest rate" type="number" minlength="1">
+        </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <input [(ngModel)]="loanPeriods" (ngModelChange)="getPayments()" name="loanPeriods" matInput placeholder="Loan period in months">
-      </mat-form-field>
-    </form>
+        <mat-form-field class="example-full-width">
+          <input [(ngModel)]="years" (ngModelChange)="getPayments()" matInput
+                 name="years" placeholder="Loan term in years" type="number" minlength="1">
+        </mat-form-field>
+      </form>
     </mat-card-content>
   </mat-card>
   <mat-card>
@@ -36,31 +42,31 @@
 
         <!-- Position Column -->
         <ng-container matColumnDef="period">
-          <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-          <mat-cell *matCellDef="let payment"> {{payment.period}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> No.</mat-header-cell>
+          <mat-cell *matCellDef="let payment"> {{payment.period}}</mat-cell>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="payment">
-          <mat-header-cell *matHeaderCellDef> Payment Amount (£) </mat-header-cell>
-          <mat-cell *matCellDef="let payment"> {{payment.payment | number:'1.2-2'}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> Payment Amount (£)</mat-header-cell>
+          <mat-cell *matCellDef="let payment"> {{payment.payment | number:'1.2-2'}}</mat-cell>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="principal">
-          <mat-header-cell *matHeaderCellDef> Principal Amount (£) </mat-header-cell>
-          <mat-cell *matCellDef="let payment"> {{payment.principal | number:'1.2-2'}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> Principal Amount (£)</mat-header-cell>
+          <mat-cell *matCellDef="let payment"> {{payment.principal | number:'1.2-2'}}</mat-cell>
         </ng-container>
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="interest">
-          <mat-header-cell *matHeaderCellDef> Interest Amount (£) </mat-header-cell>
-          <mat-cell *matCellDef="let payment"> {{payment.interest | number:'1.2-2'}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> Interest Amount (£)</mat-header-cell>
+          <mat-cell *matCellDef="let payment"> {{payment.interest | number:'1.2-2'}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="balance">
-          <mat-header-cell *matHeaderCellDef> Balance (£) </mat-header-cell>
-          <mat-cell *matCellDef="let payment"> {{payment.balance | number:'1.2-2'}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> Balance (£)</mat-header-cell>
+          <mat-cell *matCellDef="let payment"> {{payment.balance | number:'1.2-2'}}</mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
