@@ -6,7 +6,7 @@
     <span class="title">{{title}}</span>
   </div>
   <div fxHide.lt-md>
-    <a class="brand" href="https://github.com/ngx-rocket" translate>APP_NAME</a>
+    <a class="brand" routerLink="/home" translate>APP_NAME</a>
     <button mat-button routerLink="/home" routerLinkActive="active">
       <mat-icon>home</mat-icon>
       <span translate>Home</span>
@@ -17,12 +17,12 @@
     </button>
   </div>
   <span fxFlex></span>
-  <button mat-icon-button [matMenuTriggerFor]="languageMenu">
-    <mat-icon>language</mat-icon>
-  </button>
-  <mat-menu #languageMenu="matMenu">
-    <button mat-menu-item *ngFor="let language of languages" (click)="setLanguage(language)">
-        {{language}}
-      </button>
-  </mat-menu>
+  <!--<button mat-icon-button [matMenuTriggerFor]="languageMenu">-->
+    <!--<mat-icon>language</mat-icon>-->
+  <!--</button>-->
+  <!--<mat-menu #languageMenu="matMenu">-->
+    <!--<button mat-menu-item *ngFor="let language of languages" (click)="setLanguage(language)">-->
+        <!--{{language}}-->
+      <!--</button>-->
+  <!--</mat-menu>-->
 </mat-toolbar>
