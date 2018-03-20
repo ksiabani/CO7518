@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {MatTable, MatCell, MatTableDataSource, MatCellDef} from '@angular/material';
-import {DecimalPipe} from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -19,9 +17,7 @@ export class HomeComponent implements OnInit {
   interest: number;
   balance: number;
   payments: { period: number, payment: number, principal: number, interest: number, balance: number }[] = [];
-
   displayedColumns = ['period', 'payment', 'principal', 'interest', 'balance'];
-  dataSource = new MatTableDataSource(this.payments);
 
   constructor() {}
 
@@ -63,7 +59,6 @@ export class HomeComponent implements OnInit {
         balance: this.getBalance(i)
       });
     }
-    this.dataSource = new MatTableDataSource(this.payments);
   }
 
 }
