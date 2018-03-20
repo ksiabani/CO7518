@@ -9,11 +9,9 @@ import {DecimalPipe} from '@angular/common';
 })
 export class HomeComponent implements OnInit {
 
-  quote: string;
-  isLoading: boolean;
-  totalAmount = 100000;
+  totalAmount = 1000;
   annualInterest = 5;
-  loanPeriods = 36;
+  loanPeriods = 3;
   periodInterest: number;
   payment: number;
   principal: number;
@@ -24,19 +22,10 @@ export class HomeComponent implements OnInit {
   displayedColumns = ['period', 'payment', 'principal', 'interest', 'balance'];
   dataSource = new MatTableDataSource(this.payments);
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
-    // this.isLoading = true;
-    // this.quoteService.getRandomQuote({ category: 'dev' })
-    //   .pipe(finalize(() => { this.isLoading = false; }))
-    //   .subscribe((quote: string) => { this.quote = quote; });
     this.periodInterest = this.annualInterest / 100 / 12;
-    // this.payment = this.getPayment();
-    // this.principal = this.getPrincipal();
-    // this.interest = this.getInterest();
-    // this.balance = this.getBalance();
     this.getPayments();
   }
 
@@ -55,10 +44,11 @@ export class HomeComponent implements OnInit {
   }
 
   getBalance(currPeriod: number) {
-    return this.getInterest(currPeriod) / this.periodInterest - this.getPrincipal(currPeriod);
+    return (this.getInterest(currPeriod) / this.periodInterest) - this.getPrincipal(currPeriod);
   }
 
   getPayments() {
+    console.log(this.loanPeriods);
     this.payments = [];
     this.periodInterest = this.annualInterest / 100 / 12;
     this.payment = this.getPayment();
