@@ -3,25 +3,56 @@
   padding: 1em;
 }
 
-//.logo {
-//  width: 150px;
-//  margin: 0 auto;
-//}
-//
-//q {
-//  font-style: italic;
-//  quotes: "« " " »";
-//}
+.card {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
 
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-  margin: auto;
+  .form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin: 20px auto;
+  }
+
+  .form-field {
+    width: 100%;
+  }
+
+  &-title {
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  &-text {
+    padding: 0 15%;
+    margin: 20px;
+    font-size: 18px;
+  }
 }
 
-.example-full-width {
-  width: 100%;
+.no-data {
+  padding: 0;
+
+  &-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #666;
+  }
+
+  .icon {
+    font-size: 48px;
+    height: 48px;
+    width: 48px;
+    margin: 20px;
+  }
 }
 
+.narrow {
+  flex: 0 1 60px;
+}
 
+.mat-header-row, .mat-row {
+  padding-right: 0;
+}

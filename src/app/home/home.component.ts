@@ -50,7 +50,6 @@ export class HomeComponent implements OnInit {
   }
 
   getPayments() {
-    console.log(this.loanPeriods);
     this.payments = [];
     this.loanPeriods = this.years * 12;
     this.periodInterest = this.annualInterest / 100 / 12;
