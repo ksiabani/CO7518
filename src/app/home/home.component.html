@@ -1,4 +1,6 @@
 <div class="container">
+
+  <!--User input form-->
   <mat-card class="card">
     <mat-card-content>
       <mat-card-title class="card-title">Loan calculator</mat-card-title>
@@ -10,28 +12,30 @@
         <mat-form-field class="form-field">
           <input
             [(ngModel)]="totalAmount" (ngModelChange)="getPayments()" matInput
-            name="totalAmount" placeholder="Loan amount (£)" type="number" minlength="1">
+            name="totalAmount" placeholder="Loan amount (£)" type="number" minlength="1"/>
         </mat-form-field>
 
         <mat-form-field class="form-field">
           <input [(ngModel)]="annualInterest" (ngModelChange)="getPayments()" matInput
-                 name="annualInterest" placeholder="Annual interest rate (%)" type="number" minlength="1">
+                 name="annualInterest" placeholder="Annual interest rate (%)" type="number" minlength="1"/>
         </mat-form-field>
 
         <mat-form-field class="form-field">
           <input [(ngModel)]="years" (ngModelChange)="getPayments()" matInput
-                 name="years" placeholder="Loan term in years" type="number" minlength="1">
+                 name="years" placeholder="Loan term in years" type="number" minlength="1"/>
         </mat-form-field>
       </form>
     </mat-card-content>
   </mat-card>
+
+  <!--Amortization schedule table. Show when all fields are filled.-->
   <mat-card *ngIf="totalAmount && annualInterest && years; else noData">
     <mat-card-content>
       <mat-table #table [dataSource]="payments">
 
-        <!-- Period Column -->
+        <!-- Payment No Column -->
         <ng-container matColumnDef="period">
-          <mat-header-cell *matHeaderCellDef class="narrow"> Month No.</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef class="narrow"> Payment No.</mat-header-cell>
           <mat-cell *matCellDef="let payment" class="narrow"> {{payment.period}}</mat-cell>
         </ng-container>
 
@@ -65,6 +69,7 @@
     </mat-card-content>
   </mat-card>
 
+  <!--Show message when not all form fields are filled-->
   <ng-template #noData>
     <mat-card class="no-data">
       <mat-card-content class="no-data-content">
